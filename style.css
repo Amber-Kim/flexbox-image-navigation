@@ -1,0 +1,110 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+}
+
+.gallery {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.gallery li {
+    border-right: 5px solid #000;
+    flex: 1;
+    /* 1의 뜻은 각 요소마다 골고루 너비값을 분배한다는 뜻. 이미지가 5개 있으니 5개에 맞게 각 20px씩 자동으로 들어감 */
+    transition: 0.5s;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery li:last-child {
+    border-right: none;
+}
+
+.gallery li:nth-child(1) {
+    background: url(images/artistic-image-01.jpg) no-repeat center center;
+}
+
+.gallery li:nth-child(2) {
+    background: url(images/artistic-image-02.jpg) no-repeat center center;
+}
+
+.gallery li:nth-child(3) {
+    background: url(images/artistic-image-03.jpg) no-repeat center center;
+}
+
+.gallery li:nth-child(4) {
+    background: url(images/artistic-image-04.jpg) no-repeat center center;
+}
+
+.gallery li:nth-child(5) {
+    background: url(images/artistic-image-05.jpg) no-repeat center center;
+}
+
+.gallery:hover li {
+    /* 퍼센트 계산을 하지 않아도 되니 flex가 편함. 알아서 골고루 나눠줌 */
+    flex: 1;
+}
+
+.gallery li:hover {
+    flex: 3;
+    /* 마우스 올라가면 해당 li는 3을 줄게*/
+    filter: grayscale(1)
+        /* 0 = 채색만땅, 1 = 무채색*/
+}
+
+.content {
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    height: 250px;
+    bottom: -320px;
+    transition: 0.5s;
+    padding: 20;
+    box-sizing: border-box;
+    /* padding 줬으니 테두리 밖으로 늘어나지 마렴 */
+    padding-top: 40px;
+}
+
+.sns a {
+    color: #333;
+}
+
+.gallery li:hover .content {
+    bottom: 0;
+    transition-delay: 0.5s;
+}
+
+.content:before {
+    content: '';
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 80px;
+    left: 0;
+    top: -10px;
+    transform-origin: left bottom;
+    /* before에 네모를 만들어 3도 기울인 걸 오버렙 하여 사선을 표현한건데, 기울이는 시작점을 'left bottom"부터 하겠다는 뜻 */
+    transform: rotate(-3deg) scale(1.3);
+}
+
+.sns .fa {
+    font-size: 25px;
+    padding: 5px;
+}
